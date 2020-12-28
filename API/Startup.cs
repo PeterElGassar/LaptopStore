@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Data;
+using Persistence.Repositories;
+using Core.Interfaces;
 
 namespace API
 {
@@ -29,16 +31,8 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
-            //  services.AddDbContext<ApplicationDbContext>(options =>
-            //     options.UseSqlServer(
-            //         Configuration.GetConnectionString("DefaultConnection")));
-
-            // services.AddDbContext<StoreContext>(x => 
-            // x.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
-
-            // services.AddDbContext<StoreContext>(options => options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddControllers();            
             services.AddDbContext<StoreContext>(options => 
             options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
 

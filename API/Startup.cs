@@ -15,6 +15,8 @@ using Microsoft.EntityFrameworkCore;
 using Persistence.Data;
 using Persistence.Repositories;
 using Core.Interfaces;
+using AutoMapper;
+using API.Helpers;
 
 namespace API
 {
@@ -32,6 +34,9 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddControllers();            
             services.AddDbContext<StoreContext>(options => 
             options.UseSqlServer(_config.GetConnectionString("DefaultConnection")));
@@ -41,6 +46,7 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // order is very important here
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -49,7 +55,7 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseStaticFiles();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

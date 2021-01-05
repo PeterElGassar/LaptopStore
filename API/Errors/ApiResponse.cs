@@ -1,0 +1,31 @@
+using System;
+
+namespace API.Errors
+{
+    public class ApiResponse
+    {
+
+
+        public ApiResponse(int statusCode, string message = null)
+        {
+            StatusCode = statusCode;
+            Message = message ?? GetDefaultMessageForStatusCode(statusCode);
+        }
+
+        public int StatusCode { get; set; }
+        public string Message { get; set; }
+
+        private string GetDefaultMessageForStatusCode(int statusCode)
+        {
+            return statusCode switch
+            {
+                400 => "a Bad Request, you have made",
+                401 => "Authorize, you are not",
+                404 => "Resource found ,it was not",
+                500 => "Error Are the path to the dark side, leads to anger. Anger leads to hate. Hate leads to carrer change",
+                _ => null
+
+            };
+        }
+    }
+}

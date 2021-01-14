@@ -17,6 +17,8 @@ namespace Persistence.Data
             _context = context;
         }
 
+
+
         public async Task<List<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
@@ -37,6 +39,14 @@ namespace Persistence.Data
             return await ApplySpcification(spec).ToListAsync();
         }
 
+
+
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpcification(spec).CountAsync();
+        }
+
+        //Private 
         private IQueryable<T> ApplySpcification(ISpecification<T> spec)
         {
             return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);

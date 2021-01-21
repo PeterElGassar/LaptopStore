@@ -14,8 +14,23 @@ namespace Core.Specifications
         public int? BrandId { get; set; }
         public int? TypeId { get; set; }
         public string Sort { get; set; }
-        private string _search ;
+        private string _search;
 
-        public string Search { get => _search.ToLower(); set => _search = value; }
+        public string Search
+        {
+            get  {
+                if (!string.IsNullOrEmpty(_search))
+                {
+                    return _search.ToLower();
+                }
+                else
+                {
+                    return _search;
+                }
+            }
+
+            set => _search = value;
+
+        }
     }
 }

@@ -1,0 +1,65 @@
+@import 'font-awesome/css/font-awesome.css';
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+@import "src/assets/scss/_variable.scss";
+
+// @font-face {
+//     font-family: Cairo; 
+//     src: url('/clientApp/src/assets/Fonts/Cairo-SemiBold.ttf');
+//  } 
+
+
+
+body,
+* {
+  font-family: 'Cairo' !important;
+}
+
+i {
+  font-family: FontAwesome !important;
+}
+
+/*========Navbar========*/
+.navbar-custom {
+  background-color: $main-color !important;
+
+  .logo-img {
+    transform: scaleX(-1);
+  }
+
+  .cart-no {
+    border-radius: .5rem;
+    left: 40%;
+    bottom: 60%;
+  }
+
+  .login-section {
+    align-items: center;
+  }
+
+  .wrap-btn {
+    position: relative;
+  }
+
+  .log-btn,
+  .sign-btn {
+
+
+    width: 120px;
+    color: white;
+    background-color: $scond-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    border-radius: 0px;
+
+  }
+}
+
+#section-1 {
+  margin-top: 140px;
+}
+
+/*========End-Navbar========*/

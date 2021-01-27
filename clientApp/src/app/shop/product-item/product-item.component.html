@@ -1,0 +1,17 @@
+<div class="card h-100 mb-2 ">
+  <img class="img-fluid bg-light" src="{{product.imageUrl}}" alt="{{product.name}}">
+
+  <div class="card-body">
+    <a href="#">
+      <h6 class="text-uppercase">{{product.name}}</h6>
+    </a>
+    <span class="my-2">{{product.price | currency}}</span>
+
+      <div class="btn-group w-100">
+        <button type="button" class="btn btn-secondary w-50 fa fa-shopping-cart fa-2x mr-2">
+        </button>
+        <button type="button" class="btn btn-secondary w-50">view</button>
+      </div>
+
+  </div>
+</div>

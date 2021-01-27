@@ -1,0 +1,11 @@
+@import "src/assets/scss/_variable.scss";
+
+
+.filter-header{
+    color: $main-color;
+}
+
+.active-theme{
+    background-color: $second-color;
+    color: #fff;
+}

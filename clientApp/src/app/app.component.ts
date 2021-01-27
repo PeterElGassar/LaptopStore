@@ -1,8 +1,7 @@
-import { IPageination } from './models/Pageination';
-import { IProduct } from './models/Product';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { IPageination } from './shared/models/Pageination';
+import { IProduct } from './shared/models/Product';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
